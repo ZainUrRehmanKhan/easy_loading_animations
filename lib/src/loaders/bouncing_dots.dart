@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ThreeDots extends StatefulWidget {
+class BouncingDots extends StatefulWidget {
   final Duration duration;
   final double size;
   final List<Color> colors;
 
-  const ThreeDots({
+  const BouncingDots({
     Key? key,
     this.duration = const Duration(milliseconds: 1000),
     required this.size,
@@ -13,10 +13,10 @@ class ThreeDots extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _ThreeDotsState createState() => _ThreeDotsState();
+  _BouncingDotsState createState() => _BouncingDotsState();
 }
 
-class _ThreeDotsState extends State<ThreeDots> with TickerProviderStateMixin {
+class _BouncingDotsState extends State<BouncingDots> with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Alignment> _dots1Animation;
   late Animation<Alignment> _dots2Animation;

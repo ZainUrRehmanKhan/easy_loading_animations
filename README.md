@@ -1,39 +1,100 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Easy Loading Animations [![Pub](https://img.shields.io/pub/v/easy_loading_animations)](https://pub.dev/packages/easy_loading_animations)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+A collection of smart loading animations for your flutter projects which you can customize, these animations are written in pure dart and don't need any extra dependency.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+## Installation
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Add the following to your `pubspec.yaml` file:
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```yaml
+...
+dependencies:
+  ...
+  easy_loading_animations: "^1.0.0"
+...
 ```
 
-## Additional information
+Then import the file to your project:
+```dart
+import 'package:easy_loading_animations/easy_loading_animations.dart';
+```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+## Demo
+
+
+## How to use
+
+Choose a loading animation from the list:
+### Barcode Loader
+- `BarcodeLoader()`
+### Circular Pulse
+- `CircularPulse()`
+### Circular Spiral
+- `CircularSpiral({type: CircularSpiralType.simple})`
+- `CircularSpiral({type: CircularSpiralType.heavy})`
+### Fancy Plus
+- `FancyPlus()`
+### Future Dots
+- `FutureDots()`
+### Spinning Square
+- `SpinningSquare()`
+### Bouncing Dots
+- `BouncingDots()`
+
+Then add the following code:
+```dart
+CircularSpiral(
+  color: Colors.blueGrey,
+);
+```
+Or you can customize it a bit:
+```dart
+CircularSpiral(
+  borderColor: Colors.cyan,
+  size: 40,
+);
+```
+Or customize it even more!
+```dart
+CircularSpiral(
+  color: Colors.blueGrey,
+  size: 40,
+  type: CircularSpiralType.heavy,
+  duration: Duration(milliseconds: 500),
+);
+```
+
+For more customization, please look inside the easy loading animation files.
+
+Note: all the animations come ready to go just by calling, for example: `CircularSpiral()`
+
+Animations can have multiple types like `CircularSpiral()` have `simple` and `heavy`  variants, from which `simple` is default.
+
+## Contribution
+
+Please feel free to:
+> - ask questions
+> - report issues and bugs
+> - suggest code improvements
+> - request new features
+
+Want to contribute? Great just three steps to follow!
+
+> - Fork this repository
+> - Create a branch, do changes
+> - Create an issue or a pull request
+
+
+I will be more than happy to review it and add to the project.
+
+
+## Thanks
+
+If you like this package, dont forget to hit the ⭐️ Star button and follow me for more packages!
+
+## License
+
+> - [Apache 2.0](https://github.com/ZainUrRehmanKhan/easy_loading_animations/blob/main/LICENSE)
+> - 2022 copyright [SparkoSol]
+
+**Free Software, Hell Yeah!**
