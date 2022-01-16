@@ -1,23 +1,35 @@
 import 'package:flutter/material.dart';
 
+/// Creates a loading animation having two circles which bounce and looks like pulse.
 class CircularPulse extends StatefulWidget {
+  /// [duration] to complete a loop
+  /// used to increase/decrease the speed of animation.
+  ///
+  /// default [duration] is 1000 milliseconds.
   final Duration duration;
+
+  /// specify the [size] of the animation.
+  ///
+  /// default size is [30].
   final double size;
+
+  /// specify the [color] of the animation
+  ///
+  /// default [color] is [Colors.lightBlue]
   final Color color;
 
   const CircularPulse({
     Key? key,
     this.duration = const Duration(milliseconds: 1000),
-    required this.size,
-    required this.color,
+    this.size = 30,
+    this.color = Colors.lightBlue,
   }) : super(key: key);
 
   @override
   _CircularPulseState createState() => _CircularPulseState();
 }
 
-class _CircularPulseState extends State<CircularPulse>
-    with SingleTickerProviderStateMixin {
+class _CircularPulseState extends State<CircularPulse> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 

@@ -1,29 +1,41 @@
 import 'package:flutter/material.dart';
 
+/// Creates a loading animation having bars which move like a wave.
 class BarcodeLoader extends StatefulWidget {
+  /// [duration] to complete a loop
+  /// used to increase/decrease the speed of animation.
+  ///
+  /// default [duration] is 1000 milliseconds.
   final Duration duration;
+
+  /// specify the [height] of the animation.
+  ///
+  /// default height is [30]
   final double height;
+
+  /// specify the [color] of the animation
+  ///
+  /// default [color] is [Colors.lightBlue]
   final Color color;
 
   const BarcodeLoader({
     Key? key,
     this.duration = const Duration(milliseconds: 1000),
-    required this.height,
-    required this.color,
+    this.height = 30,
+    this.color = Colors.lightBlue,
   }) : super(key: key);
 
   @override
   _BarcodeLoaderState createState() => _BarcodeLoaderState();
 }
 
-class _BarcodeLoaderState extends State<BarcodeLoader>
-    with SingleTickerProviderStateMixin {
+class _BarcodeLoaderState extends State<BarcodeLoader> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _scaleContainer1Animation;
-  late Animation<double> _scaleContainer2Animation;
-  late Animation<double> _scaleContainer3Animation;
-  late Animation<double> _scaleContainer4Animation;
-  late Animation<double> _scaleContainer5Animation;
+  late Animation<double> _scaleFirstBarAnimation;
+  late Animation<double> _scaleSecondBarAnimation;
+  late Animation<double> _scaleThirdBarAnimation;
+  late Animation<double> _scaleFourthBarAnimation;
+  late Animation<double> _scaleFifthBarAnimation;
 
   @override
   void initState() {
@@ -35,7 +47,7 @@ class _BarcodeLoaderState extends State<BarcodeLoader>
 
   @override
   Widget build(BuildContext context) {
-    _scaleContainer1Animation = TweenSequence([
+    _scaleFirstBarAnimation = TweenSequence([
       TweenSequenceItem(tween: Tween(begin: 1.0, end: 2.0), weight: 0.5),
       TweenSequenceItem(tween: Tween(begin: 2.0, end: 1.0), weight: 0.5)
     ]).animate(
@@ -44,7 +56,7 @@ class _BarcodeLoaderState extends State<BarcodeLoader>
         parent: _controller,
       ),
     );
-    _scaleContainer2Animation = TweenSequence([
+    _scaleSecondBarAnimation = TweenSequence([
       TweenSequenceItem(tween: Tween(begin: 1.0, end: 2.0), weight: 0.5),
       TweenSequenceItem(tween: Tween(begin: 2.0, end: 1.0), weight: 0.5)
     ]).animate(
@@ -53,7 +65,7 @@ class _BarcodeLoaderState extends State<BarcodeLoader>
         parent: _controller,
       ),
     );
-    _scaleContainer3Animation = TweenSequence([
+    _scaleThirdBarAnimation = TweenSequence([
       TweenSequenceItem(tween: Tween(begin: 1.0, end: 2.0), weight: 0.5),
       TweenSequenceItem(tween: Tween(begin: 2.0, end: 1.0), weight: 0.5)
     ]).animate(
@@ -62,7 +74,7 @@ class _BarcodeLoaderState extends State<BarcodeLoader>
         parent: _controller,
       ),
     );
-    _scaleContainer4Animation = TweenSequence([
+    _scaleFourthBarAnimation = TweenSequence([
       TweenSequenceItem(tween: Tween(begin: 1.0, end: 2.0), weight: 0.5),
       TweenSequenceItem(tween: Tween(begin: 2.0, end: 1.0), weight: 0.5)
     ]).animate(
@@ -71,7 +83,7 @@ class _BarcodeLoaderState extends State<BarcodeLoader>
         parent: _controller,
       ),
     );
-    _scaleContainer5Animation = TweenSequence([
+    _scaleFifthBarAnimation = TweenSequence([
       TweenSequenceItem(tween: Tween(begin: 1.0, end: 2.0), weight: 0.5),
       TweenSequenceItem(tween: Tween(begin: 2.0, end: 1.0), weight: 0.5)
     ]).animate(
@@ -88,11 +100,11 @@ class _BarcodeLoaderState extends State<BarcodeLoader>
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              customContainer(scaleAnimation: _scaleContainer1Animation),
-              customContainer(scaleAnimation: _scaleContainer2Animation),
-              customContainer(scaleAnimation: _scaleContainer3Animation),
-              customContainer(scaleAnimation: _scaleContainer4Animation),
-              customContainer(scaleAnimation: _scaleContainer5Animation)
+              customContainer(scaleAnimation: _scaleFirstBarAnimation),
+              customContainer(scaleAnimation: _scaleSecondBarAnimation),
+              customContainer(scaleAnimation: _scaleThirdBarAnimation),
+              customContainer(scaleAnimation: _scaleFourthBarAnimation),
+              customContainer(scaleAnimation: _scaleFifthBarAnimation)
             ],
           ),
         );

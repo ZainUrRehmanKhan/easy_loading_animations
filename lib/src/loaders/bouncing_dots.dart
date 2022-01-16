@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
 
+/// Creates a loading animation having three dots which bounce in a wave pattern.
 class BouncingDots extends StatefulWidget {
+  /// [duration] to complete a loop
+  /// used to increase/decrease the speed of animation.
+  ///
+  /// default [duration] is 1000 milliseconds.
   final Duration duration;
+
+  /// specify the [size] of the animation.
+  ///
+  /// default size is [30].
   final double size;
+
+  /// specify the [colors] used in the animation.
+  ///
+  /// default [colors] are [Colors.blue], [Colors.red], [Colors.yellow].
   final List<Color> colors;
 
   const BouncingDots({
     Key? key,
+    this.size = 30,
     this.duration = const Duration(milliseconds: 1000),
-    required this.size,
-    required this.colors,
+    this.colors = const [Colors.blue, Colors.red, Colors.yellow],
   }) : super(key: key);
 
   @override

@@ -1,19 +1,41 @@
 import 'package:flutter/material.dart';
 
+/// Two type of circular spiral animation [simple] and [heavy].
 enum CircularSpiralType { simple, heavy }
 
+/// Creates a loading animation having circles which move in circular way.
 class CircularSpiral extends StatefulWidget {
+  /// [duration] to complete a loop
+  /// used to increase/decrease the speed of animation.
+  ///
+  /// default [duration] is 1000 milliseconds.
   final Duration duration;
+
+  /// specify the [size] of the animation.
+  ///
+  /// default size is [30].
   final double size;
+
+  /// specify the [color] of the animation
+  ///
+  /// default [color] is [Colors.blueGrey]
   final Color color;
+
+  /// specify the [reverse] boolean to [true], if you want a reverse animation
+  ///
+  /// default [reverse] is [false]
   final bool reverse;
+
+  /// specify the [type] of the animation
+  ///
+  /// default [type] is [CircularSpiralType.simple]
   final CircularSpiralType type;
 
   const CircularSpiral({
     Key? key,
     this.duration = const Duration(milliseconds: 1000),
-    required this.size,
-    required this.color,
+    this.size = 30,
+    this.color = Colors.blueGrey,
     this.reverse = false,
     this.type = CircularSpiralType.simple,
   }) : super(key: key);
@@ -22,8 +44,7 @@ class CircularSpiral extends StatefulWidget {
   _CircularSpiralState createState() => _CircularSpiralState();
 }
 
-class _CircularSpiralState extends State<CircularSpiral>
-    with SingleTickerProviderStateMixin {
+class _CircularSpiralState extends State<CircularSpiral> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _rotateAnimation;

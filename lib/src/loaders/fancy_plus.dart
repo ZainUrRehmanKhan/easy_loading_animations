@@ -1,22 +1,51 @@
 import 'package:flutter/material.dart';
 
+/// It is a star like simple animation have four lines which grows and shrink.
 class FancyPlus extends StatefulWidget {
+  /// specify the [color] of the animation
+  ///
+  /// default [color] is [Colors.blueGrey]
   final Color color;
+
+  /// [duration] to complete a loop
+  /// used to increase/decrease the speed of animation.
+  ///
+  /// default [duration] is 1000 milliseconds.
   final Duration duration;
+
+  /// specify the [size] of the animation.
+  ///
+  /// default size is [30].
   final double size;
-  final double lineWidth;
+
+  /// [lineHeight] to change the height of line.
+  ///
+  /// default size is [15].
   final double lineHeight;
+
+  /// [lineWidth] to change the width of line.
+  ///
+  /// default size is [3].
+  final double lineWidth;
+
+  /// [scalingCurve] change the way of animation transformation.
+  ///
+  /// default is [Curves.easeOut].
   final Cubic scalingCurve;
+
+  /// [lineBorderRadius] changes the border radius of the line.
+  ///
+  /// default [lineBorderRadius] is [20] for all sides.
   final BorderRadius lineBorderRadius;
 
   const FancyPlus({
     Key? key,
-    required this.color,
-    required this.size,
-    required this.lineHeight,
-    required this.lineWidth,
+    this.color = Colors.blueGrey,
+    this.size = 30,
+    this.lineHeight = 15,
+    this.lineWidth = 3,
     this.scalingCurve = Curves.easeOut,
-    this.duration = const Duration(milliseconds: 900),
+    this.duration = const Duration(milliseconds: 1000),
     this.lineBorderRadius = const BorderRadius.all(Radius.circular(20)),
   }) : super(key: key);
 

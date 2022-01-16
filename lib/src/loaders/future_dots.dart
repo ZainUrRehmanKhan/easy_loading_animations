@@ -1,13 +1,41 @@
 import 'package:flutter/material.dart';
 
+/// [FutureDots] is a simple animation which waits for a future to complete for its own completion.
+/// Can be widely use for network requests.
 class FutureDots extends StatefulWidget {
+  /// [duration] to complete a loop, used to increase/decrease the speed of animation.
+  ///
+  /// default [duration] is 1000 milliseconds.
   final Duration duration;
+
+  /// specify the [size] of the animation.
+  ///
+  /// default size is [50].
   final double size;
+
+  /// Animation will move until the [future] is not completed.
+  /// A function can be provided which returns a future just like a network request.
   final Future future;
-  final Color loadingColorLight,
-      loadingColorDark,
-      afterLoadingColorLight,
-      afterLoadingColorDark;
+
+  /// specify a light [Color] for the animation
+  ///
+  /// default [loadingColorLight] is [Colors.lightBlue]
+  final Color loadingColorLight;
+
+  /// specify a dark [Color] for the animation
+  ///
+  /// default [loadingColorDark] is [Colors.blueGrey]
+  final Color loadingColorDark;
+
+  /// specify a light [Color] for the animation
+  ///
+  /// default [afterLoadingColorLight] is [Colors.lightBlue]
+  final Color afterLoadingColorLight;
+
+  /// specify a dark [Color] for the animation
+  ///
+  /// default [afterLoadingColorDark] is [Colors.blueGrey]
+  final Color afterLoadingColorDark;
 
   const FutureDots({
     Key? key,
